@@ -306,6 +306,7 @@ initialize_bfd(const char *filename, const char *target)
     return NULL;
   }
 
+  /*
   if (bfd_check_format (abfd, bfd_archive)) {
     fprintf(stderr, "initalize_bfd: archive files not supported\n");
     bfd_close_all_done(abfd);
@@ -317,6 +318,7 @@ initialize_bfd(const char *filename, const char *target)
     bfd_close_all_done(abfd);
     return NULL;
   }
+  */
 
   if (!bfd_check_format_matches(abfd, bfd_object, &matching)) {
     if (bfd_get_error() == bfd_error_file_ambiguously_recognized && matching) {
