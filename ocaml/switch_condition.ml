@@ -36,7 +36,7 @@ let add_switch_conditions_int origssa optssa vsa_in =
   let g, allgood = CS.G.fold_vertex (fun v (g,allgood) ->
     try
       match List.rev (CS.get_stmts g v) with
-      | Jmp(e, _)::_ when Ssa.lab_of_exp e = None &
+      | Jmp(e, _)::_ when Ssa.lab_of_exp e = None &&
                      CS.G.succ g v <> [CS.G.V.create Cfg.BB_Exit] ->
         let cpe = cp e in
         dprintf "indirect jump %s %s" (Pp.ssa_exp_to_string e) (Pp.ssa_exp_to_string cpe);

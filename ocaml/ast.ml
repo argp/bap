@@ -139,7 +139,7 @@ let quick_exp_eq e1 e2 =
     let b6 = List.for_all2 (==) l6 r6 in
     let b7 = List.for_all2 (==) l7 r7 in
     let b8 = List.for_all2 (==) l8 r8 in
-    if b1 & b2 & b3 & b4 & b5 & b6 & b7 & b8 then
+    if b1 && b2 && b3 && b4 && b5 && b6 && b7 && b8 then
       true else false
 *)
 
@@ -188,9 +188,9 @@ let rec full_exp_eq e1 e2 = e1 = e2
 (*     let b6 = List.for_all2 (=) l6 r6 in *)
 (*     let b7 = List.for_all2 (eq_big_int) l7 r7 in *)
 (*     let b8 = List.for_all2 (=) l8 r8 in *)
-(*     if b1 & b2 & b3 & b4 & b5 & b6 & b7 & b8 then *)
+(*     if b1 && b2 && b3 && b4 && b5 && b6 && b7 && b8 then *)
 (*       true *)
-(*     else if b2 & b3 & b4 & b5 & b6 & b7 & b8 then *)
+(*     else if b2 && b3 && b4 && b5 && b6 && b7 && b8 then *)
 (* (\* e1 and e2 are not physically equal.  But maybe the subexpressions *)
 (*    are structurally, but not physically, equal. *\) *)
 (*       List.for_all2 full_exp_eq l1 r1 *)
@@ -262,9 +262,9 @@ let quick_stmt_eq s1 s2 =
     let b3 = List.for_all2 (==) l3 r3 in
     let b4 = List.for_all2 (==) l4 r4 in
     let b5 = List.for_all2 (==) l5 r5 in
-    if b1 & b2 & b3 & b4 & b5 then
+    if b1 && b2 && b3 && b4 && b5 then
       true
-    else if b2 & b3 & b4 & b5 then
+    else if b2 && b3 && b4 && b5 then
       (* e1 and e2 are not physically equal.  But maybe their subexpressions
          are physically equal. *)
       List.for_all2 quick_exp_eq l1 r1
@@ -282,9 +282,9 @@ let full_stmt_eq s1 s2 = s1 = s2
 (*     let b3 = List.for_all2 (=) l3 r3 in *)
 (*     let b4 = List.for_all2 (=) l4 r4 in *)
 (*     let b5 = List.for_all2 (=) l5 r5 in *)
-(*     if b1 & b2 & b3 & b4 & b5 then *)
+(*     if b1 && b2 && b3 && b4 && b5 then *)
 (*       true *)
-(*     else if b2 & b3 & b4 & b5 then *)
+(*     else if b2 && b3 && b4 && b5 then *)
 (* (\* e1 and e2 are not physically equal.  But maybe the subexpressions *)
 (*    are structurally, but not physically, equal. *\) *)
 (*       List.for_all2 full_exp_eq l1 r1 *)

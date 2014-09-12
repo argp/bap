@@ -17,7 +17,7 @@ let cfg_jumpelim graph =
         let laststmt = List.hd revstmts in
         match laststmt with
         | CJmp(cond, l1, l2, attr)
-            when full_value_eq cond val_true or full_value_eq cond val_false ->
+            when full_value_eq cond val_true || full_value_eq cond val_false ->
           (try
              let bool = cond = val_true in
              let edges = C.G.succ_e graph bb in

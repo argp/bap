@@ -2649,8 +2649,8 @@ let parse_instr mode g addr =
               (Mov(prefix.opsize, Oreg(rm_extend lor (b1 & 7)), i, None), na)
     | 0xc2 | 0xc3 (* Near ret *)
     | 0xca | 0xcb (* Far ret *) ->
-      let far_ret = if (b1 = 0xc2 or b1 = 0xc3) then false else true in
-      if (b1 = 0xc3 or b1 = 0xcb) then (Retn(None, far_ret), na) 
+      let far_ret = if (b1 = 0xc2 || b1 = 0xc3) then false else true in
+      if (b1 = 0xc3 || b1 = 0xcb) then (Retn(None, far_ret), na) 
       else let (imm,na) = parse_immw na in 
            (Retn(Some(mt, imm), far_ret), na)
     | 0xc6
