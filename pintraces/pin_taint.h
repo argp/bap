@@ -11,6 +11,7 @@
 #include <vector>
 #include <string.h>
 #ifndef _WIN32
+#include <unistd.h>
 #include <asm/unistd.h>
 #endif
 #include "pin_misc.h"
