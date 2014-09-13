@@ -195,6 +195,7 @@ type opcode =
   | Setcc of typ * operand * Ast.exp
   | Hlt
   | Cmps of typ
+  | Lods of typ
   | Scas of typ
   | Stos of typ
   | Push of typ * operand
@@ -1730,6 +1731,17 @@ let rec to_ir mode addr next ss pref has_rex has_vex =
       rep_wrap ~mode ~check_zf:(List.hd pref) ~addr ~next stmts
     else
       unimplemented "unsupported flags in cmps"
+  | Lods(Reg bits as t) ->
+    let stmts =
+      assn t o_rax (op2e t (Oaddr rsi_e))
+      :: string_incr mode t rsi
+      :: []
+    in
+    if pref = [] then
+      stmts
+    else if pref = [repz] || pref = [repnz] then
+      rep_wrap ~mode ~check_zf:(List.hd pref) ~addr ~next stmts
+    else unimplemented "unsupported flags in lods"
   | Scas(Reg bits as t) ->
     let src1 = nt "src1" t and src2 = nt "src2" t and tmpres = nt "tmp" t in
     let stmts =
@@ -2097,6 +2109,7 @@ let rec to_ir mode addr next ss pref has_rex has_vex =
   | Lea _ ->  unimplemented "to_ir: Lea"
   | Movs _ ->  unimplemented "to_ir: Movs"
   | Cmps _ ->  unimplemented "to_ir: Cmps"
+  | Lods _ ->  unimplemented "to_ir: Lods"
   | Scas _ ->  unimplemented "to_ir: Scas"
   | Stos _ ->  unimplemented "to_ir: Stos"
   | Retn _ ->  unimplemented "to_ir: Retn"
@@ -2632,6 +2645,8 @@ let parse_instr mode g addr =
     | 0xa5 -> (Movs prefix.opsize, na)
     | 0xa6 -> (Cmps r8, na)
     | 0xa7 -> (Cmps prefix.opsize, na)
+    | 0xac -> (Lods r8, na)
+    | 0xad -> (Lods prefix.opsize, na)
     | 0xae -> (Scas r8, na)
     | 0xaf -> (Scas prefix.opsize, na)
     | 0xa8 -> let (i, na) = parse_imm8 na in
