@@ -19,19 +19,19 @@ for a list of the developers.
 
 I have tested this fork only with the following configurations:
 * Ubuntu 14.04.1 (i686)
-..* gcc (Ubuntu 4.8.2-19ubuntu1) 4.8.2
-..* pin-2.14-67254-gcc.4.4.7-linux
-..* OPAM 1.1.1
-..* OCaml 4.01.0
-..* All BAP's OCaml package dependencies from OPAM
+    * gcc (Ubuntu 4.8.2-19ubuntu1) 4.8.2
+    * pin-2.14-67254-gcc.4.4.7-linux
+    * OPAM 1.1.1
+    * OCaml 4.01.0
+    * All BAP's OCaml package dependencies from OPAM
 
 * OS X 10.9.4 (no Pintool yet)
-..* Apple LLVM version 5.1 (clang-503.0.40) (based on LLVM 3.4svn)
-..* OPAM 1.1.1
-..* OCaml 4.01.0
-..* All BAP's OCaml package dependencies from OPAM
-..* MacPorts 2.3.1 (see the INSTALL file)
-..* libiberty from binutils 2.24 needs to be manually installed
+    * Apple LLVM version 5.1 (clang-503.0.40) (based on LLVM 3.4svn)
+    * OPAM 1.1.1
+    * OCaml 4.01.0
+    * All BAP's OCaml package dependencies from OPAM
+    * MacPorts 2.3.1 (see the INSTALL file)
+    * libiberty from binutils 2.24 needs to be manually installed
 
 Building on Linux
 -----------------
