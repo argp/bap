@@ -48,6 +48,7 @@
 #include <google/protobuf/stubs/strutil.h>
 #include <google/protobuf/stubs/map-util.h>
 #include <google/protobuf/stubs/stl_util-inl.h>
+#include <istream>
 
 namespace google {
 namespace protobuf {

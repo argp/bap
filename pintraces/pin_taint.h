@@ -12,7 +12,9 @@
 #include <string.h>
 #ifndef _WIN32
 #include <unistd.h>
+#ifndef __APPLE__
 #include <asm/unistd.h>
+#endif
 #endif
 #include "pin_misc.h"
 #include "trace.container.hpp"
