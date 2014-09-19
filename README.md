@@ -1,7 +1,7 @@
 BAP: Binary Analysis Platform
 =============================
 
-This is a fork from the BAP version 0.8 release that appeared at:
+This is a fork of the BAP version 0.8 release that appeared at:
 
 https://github.com/0day1day/bap/
 
@@ -50,5 +50,13 @@ Add the ./bap/utils directory to your path. The Pintool is at
 Building on OS X
 ----------------
 
-No Pintool yet.
+See the INSTALL file. No Pintool yet.
+
+Developing with BAP
+-------------------
+
+For an example standalone utility that uses BAP see the example-util
+directory. The example-util directory doesn't need to be in the bap
+directory; place it wherever and edit example-util/Makefile to specify
+the location of where you compiled BAP.
 
