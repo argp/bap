@@ -38,7 +38,7 @@ Building on Linux
 
 Install all dependencies of BAP with OPAM (also see the INSTALL file).
 Then download Pin version 2.14-67254-gcc.4.4.7-linux and place it at
-./bap/pin. Finally do,
+./bap/pin. Finally do:
 
     ./autogen.sh
     ./configure
@@ -50,7 +50,18 @@ Add the ./bap/utils directory to your path. The Pintool is at
 Building on OS X
 ----------------
 
-See the INSTALL file. No Pintool yet.
+Follow the instructions from the INSTALL file. Before the "./autogen.sh"
+step you need to manually install libiberty from binutils, with something
+like:
+
+    wget http://ftp.gnu.org/gnu/binutils/binutils-2.24.tar.bz2
+    tar jxvf binutils-2.24.tar.bz2
+    cd binutils-2.24/libiberty
+    ./configure --prefix=/opt/local --enable-install-libiberty
+    make
+    sudo make install
+
+The Pintool needs to be ported to OS X.
 
 Developing with BAP
 -------------------
