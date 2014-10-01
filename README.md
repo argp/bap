@@ -41,7 +41,7 @@ Then download Pin version 2.14-67254-gcc.4.4.7-linux and place it at
 ./bap/pin. Finally do:
 
     ./autogen.sh
-    ./configure
+    ./configure --with-z3=`pwd`/solvers/z3
     make
 
 Add the ./bap/utils directory to your path. The Pintool is at
